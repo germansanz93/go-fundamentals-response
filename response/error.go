@@ -10,27 +10,27 @@ type ErrorResponse struct {
 	Message string `json: "message"`
 }
 
-func InternalServerError(msg string) ErrorResponse {
-	return error(msg, http.StatusInternalServerError)
+func InternalServerError(msg string) Response {
+	return errorR(msg, http.StatusInternalServerError)
 }
 
-func BadRequest(msg string) ErrorResponse {
-	return error(msg, http.StatusBadRequest)
+func BadRequest(msg string) Response {
+	return errorR(msg, http.StatusBadRequest)
 }
 
-func NotFound(msg string) ErrorResponse {
-	return error(msg, http.StatusNotFound)
+func NotFound(msg string) Response {
+	return errorR(msg, http.StatusNotFound)
 }
 
-func Unauthorized(msg string) ErrorResponse {
-	return error(msg, http.StatusUnauthorized)
+func Unauthorized(msg string) Response {
+	return errorR(msg, http.StatusUnauthorized)
 }
 
-func Forbidden(msg string) ErrorResponse {
-	return error(msg, http.StatusForbidden)
+func Forbidden(msg string) Response {
+	return errorR(msg, http.StatusForbidden)
 }
 
-func error(msg string, code int) ErrorResponse {
+func errorR(msg string, code int) Response {
 	return &ErrorResponse{
 		Message: msg,
 		Status:  code,
