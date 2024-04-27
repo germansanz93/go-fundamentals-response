@@ -7,7 +7,7 @@ import (
 
 type ErrorResponse struct {
 	Status  int    `json:"status"`
-	Message string `json: "message"`
+	Message string `json:"message"`
 }
 
 func InternalServerError(msg string) Response {
