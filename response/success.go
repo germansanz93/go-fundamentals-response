@@ -6,9 +6,9 @@ import (
 )
 
 type SuccessResponse struct {
-	Message string `json:"message"`
-	Status  int    `json:"status"`
-	Data    interface{}
+	Message string      `json:"message"`
+	Status  int         `json:"status"`
+	Data    interface{} `json:"data"`
 }
 
 func Ok(msg string, data interface{}) Response {
